@@ -1,0 +1,17 @@
+{
+  "station_id": 1,
+  "board_type": "departure",
+  "hourly_average_delay": [
+    { "hour": 8, "average_delay": 3.2, "trains": 6 },
+    { "hour": 9, "average_delay": 5.1, "trains": 9 },
+    { "hour": 10, "average_delay": 7.8, "trains": 12 },
+    { "hour": 11, "average_delay": 6.4, "trains": 8 }
+  ],
+  "delay_distribution": [
+    { "bucket": "0-4", "count": 9 },
+    { "bucket": "5-9", "count": 12 },
+    { "bucket": "10-19", "count": 5 },
+    { "bucket": "20-39", "count": 2 },
+    { "bucket": "40+", "count": 0 }
+  ]
+}

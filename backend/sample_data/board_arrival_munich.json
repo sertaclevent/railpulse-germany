@@ -1,0 +1,32 @@
+[
+  {
+    "external_trip_id": "sample-arr-ice-1",
+    "train_name": "ICE 1215",
+    "category": "ICE",
+    "direction": "Hamburg Hbf",
+    "minutes_from_now": 15,
+    "delay_minutes": 4,
+    "platform": "10",
+    "status": "scheduled"
+  },
+  {
+    "external_trip_id": "sample-arr-ic-2",
+    "train_name": "IC 2087",
+    "category": "IC",
+    "direction": "Dortmund Hbf",
+    "minutes_from_now": 34,
+    "delay_minutes": 9,
+    "platform": "6",
+    "status": "scheduled"
+  },
+  {
+    "external_trip_id": "sample-arr-re-3",
+    "train_name": "RE 4850",
+    "category": "RE",
+    "direction": "Passau Hbf",
+    "minutes_from_now": 58,
+    "delay_minutes": 0,
+    "platform": "19",
+    "status": "scheduled"
+  }
+]

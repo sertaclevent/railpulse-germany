@@ -1,0 +1,44 @@
+{
+  "stations": [
+    {
+      "eva": "8000261",
+      "name": "Muenchen Hbf",
+      "city": "Muenchen",
+      "state": "Bayern",
+      "lat": 48.140232,
+      "lon": 11.558335,
+      "ds100": "MH",
+      "description": "Central station in Munich"
+    },
+    {
+      "eva": "8000105",
+      "name": "Berlin Hbf",
+      "city": "Berlin",
+      "state": "Berlin",
+      "lat": 52.525589,
+      "lon": 13.369548,
+      "ds100": "BLS",
+      "description": "Central station in Berlin"
+    },
+    {
+      "eva": "8000207",
+      "name": "Hamburg Hbf",
+      "city": "Hamburg",
+      "state": "Hamburg",
+      "lat": 53.552694,
+      "lon": 10.006774,
+      "ds100": "AH",
+      "description": "Central station in Hamburg"
+    },
+    {
+      "eva": "8000240",
+      "name": "Koeln Hbf",
+      "city": "Koeln",
+      "state": "Nordrhein-Westfalen",
+      "lat": 50.943031,
+      "lon": 6.958729,
+      "ds100": "KK",
+      "description": "Central station in Cologne"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "external_trip_id": "sample-dep-ice-1",
+    "train_name": "ICE 610",
+    "category": "ICE",
+    "direction": "Berlin Hbf",
+    "minutes_from_now": 12,
+    "delay_minutes": 3,
+    "platform": "18",
+    "status": "scheduled"
+  },
+  {
+    "external_trip_id": "sample-dep-re-2",
+    "train_name": "RE 4038",
+    "category": "RE",
+    "direction": "Nuernberg Hbf",
+    "minutes_from_now": 28,
+    "delay_minutes": 11,
+    "platform": "22",
+    "status": "scheduled"
+  },
+  {
+    "external_trip_id": "sample-dep-s-3",
+    "train_name": "S 3",
+    "category": "S",
+    "direction": "Holzkirchen",
+    "minutes_from_now": 46,
+    "delay_minutes": 0,
+    "platform": "2",
+    "status": "scheduled"
+  },
+  {
+    "external_trip_id": "sample-dep-ec-4",
+    "train_name": "EC 218",
+    "category": "EC",
+    "direction": "Zuerich HB",
+    "minutes_from_now": 64,
+    "delay_minutes": 16,
+    "platform": "12",
+    "status": "scheduled"
+  },
+  {
+    "external_trip_id": "sample-dep-rb-5",
+    "train_name": "RB 27980",
+    "category": "RB",
+    "direction": "Augsburg Hbf",
+    "minutes_from_now": 95,
+    "delay_minutes": 6,
+    "platform": "27",
+    "status": "scheduled"
+  }
+]

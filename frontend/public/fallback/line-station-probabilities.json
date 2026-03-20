@@ -1,0 +1,64 @@
+{
+  "station_id": 1,
+  "board_type": "departure",
+  "days": 30,
+  "min_trains": 6,
+  "top_n": 8,
+  "sampled_lines": 4,
+  "most_risky": [
+    {
+      "line_name": "RE 7",
+      "category": "RE",
+      "total_trains": 41,
+      "average_delay": 9.1,
+      "maximum_delay": 44,
+      "on_time_probability": 0.15,
+      "delay_probability": 0.85,
+      "delay_over_5_probability": 0.61,
+      "delay_over_10_probability": 0.37,
+      "delay_probability_confidence_95": { "lower": 0.71, "upper": 0.93 },
+      "risk_band": "high"
+    },
+    {
+      "line_name": "S 2",
+      "category": "S",
+      "total_trains": 56,
+      "average_delay": 7.4,
+      "maximum_delay": 39,
+      "on_time_probability": 0.28,
+      "delay_probability": 0.72,
+      "delay_over_5_probability": 0.53,
+      "delay_over_10_probability": 0.29,
+      "delay_probability_confidence_95": { "lower": 0.59, "upper": 0.81 },
+      "risk_band": "high"
+    }
+  ],
+  "most_reliable": [
+    {
+      "line_name": "ICE 100",
+      "category": "ICE",
+      "total_trains": 49,
+      "average_delay": 2.1,
+      "maximum_delay": 16,
+      "on_time_probability": 0.66,
+      "delay_probability": 0.34,
+      "delay_over_5_probability": 0.13,
+      "delay_over_10_probability": 0.04,
+      "delay_probability_confidence_95": { "lower": 0.22, "upper": 0.48 },
+      "risk_band": "low"
+    },
+    {
+      "line_name": "RB 54",
+      "category": "RB",
+      "total_trains": 36,
+      "average_delay": 2.8,
+      "maximum_delay": 19,
+      "on_time_probability": 0.59,
+      "delay_probability": 0.41,
+      "delay_over_5_probability": 0.18,
+      "delay_over_10_probability": 0.06,
+      "delay_probability_confidence_95": { "lower": 0.27, "upper": 0.57 },
+      "risk_band": "medium"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1366" height="768" viewBox="0 0 1366 768">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0e7490"/>
+    </linearGradient>
+  </defs>
+  <rect width="1366" height="768" fill="#f1f5f9"/>
+  <rect x="24" y="24" width="1318" height="96" rx="16" fill="url(#bg)"/>
+  <text x="56" y="74" fill="#e2e8f0" font-size="32" font-family="Segoe UI" font-weight="700">RailPulse Germany - Dashboard</text>
+  <rect x="24" y="140" width="280" height="280" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="320" y="140" width="620" height="280" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="956" y="140" width="386" height="280" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="24" y="436" width="920" height="308" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="960" y="436" width="382" height="308" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="52" y="172" fill="#334155" font-size="18" font-family="Segoe UI">Filters</text>
+  <text x="348" y="172" fill="#334155" font-size="18" font-family="Segoe UI">Map</text>
+  <text x="984" y="172" fill="#334155" font-size="18" font-family="Segoe UI">KPI Cards</text>
+  <text x="52" y="468" fill="#334155" font-size="18" font-family="Segoe UI">Train Table</text>
+  <text x="988" y="468" fill="#334155" font-size="18" font-family="Segoe UI">Delay Charts</text>
+</svg>

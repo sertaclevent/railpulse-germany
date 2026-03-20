@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "eva_number": "8000261",
+    "name": "Muenchen Hbf",
+    "city": "Muenchen",
+    "latitude": 48.140232,
+    "longitude": 11.558335,
+    "label": "Muenchen Hbf - Muenchen"
+  },
+  {
+    "id": 2,
+    "eva_number": "8000105",
+    "name": "Berlin Hbf",
+    "city": "Berlin",
+    "latitude": 52.525589,
+    "longitude": 13.369548,
+    "label": "Berlin Hbf - Berlin"
+  }
+]

@@ -1,0 +1,112 @@
+{
+  "line_name": "ICE 100",
+  "days": 30,
+  "summary": {
+    "total_trains": 240,
+    "average_delay": 2.4,
+    "median_delay": 1.0,
+    "on_time_ratio": 0.63,
+    "delayed_any_ratio": 0.37,
+    "delayed_over_5_ratio": 0.17,
+    "delayed_over_10_ratio": 0.08,
+    "maximum_delay": 24
+  },
+  "risk_forecast": {
+    "sample_size": 240,
+    "delay_probability": 0.37,
+    "on_time_probability": 0.63,
+    "delay_over_5_probability": 0.17,
+    "delay_over_10_probability": 0.08,
+    "expected_delay_minutes": 2.4,
+    "delay_probability_confidence_95": {
+      "lower": 0.31,
+      "upper": 0.43
+    },
+    "risk_band": "medium"
+  },
+  "daily": [
+    { "date": "2026-03-14", "total_trains": 8, "average_delay": 2.2, "median_delay": 1.0, "on_time_ratio": 0.61, "delayed_any_ratio": 0.39, "delayed_over_5_ratio": 0.14, "delayed_over_10_ratio": 0.06, "maximum_delay": 16 },
+    { "date": "2026-03-15", "total_trains": 8, "average_delay": 2.6, "median_delay": 2.0, "on_time_ratio": 0.55, "delayed_any_ratio": 0.45, "delayed_over_5_ratio": 0.19, "delayed_over_10_ratio": 0.08, "maximum_delay": 19 },
+    { "date": "2026-03-16", "total_trains": 9, "average_delay": 2.9, "median_delay": 2.0, "on_time_ratio": 0.5, "delayed_any_ratio": 0.5, "delayed_over_5_ratio": 0.24, "delayed_over_10_ratio": 0.11, "maximum_delay": 22 },
+    { "date": "2026-03-17", "total_trains": 8, "average_delay": 2.5, "median_delay": 1.0, "on_time_ratio": 0.57, "delayed_any_ratio": 0.43, "delayed_over_5_ratio": 0.17, "delayed_over_10_ratio": 0.08, "maximum_delay": 18 },
+    { "date": "2026-03-18", "total_trains": 8, "average_delay": 2.1, "median_delay": 1.0, "on_time_ratio": 0.62, "delayed_any_ratio": 0.38, "delayed_over_5_ratio": 0.13, "delayed_over_10_ratio": 0.05, "maximum_delay": 15 },
+    { "date": "2026-03-19", "total_trains": 8, "average_delay": 2.4, "median_delay": 1.0, "on_time_ratio": 0.59, "delayed_any_ratio": 0.41, "delayed_over_5_ratio": 0.16, "delayed_over_10_ratio": 0.07, "maximum_delay": 17 },
+    { "date": "2026-03-20", "total_trains": 8, "average_delay": 2.7, "median_delay": 2.0, "on_time_ratio": 0.54, "delayed_any_ratio": 0.46, "delayed_over_5_ratio": 0.2, "delayed_over_10_ratio": 0.08, "maximum_delay": 20 }
+  ],
+  "weekly": [
+    { "week_start": "2026-03-02", "week_end": "2026-03-08", "total_trains": 56, "average_delay": 2.5, "median_delay": 1.0, "on_time_ratio": 0.58, "delayed_any_ratio": 0.42, "delayed_over_5_ratio": 0.18, "delayed_over_10_ratio": 0.08, "maximum_delay": 21 },
+    { "week_start": "2026-03-09", "week_end": "2026-03-15", "total_trains": 58, "average_delay": 2.6, "median_delay": 1.0, "on_time_ratio": 0.56, "delayed_any_ratio": 0.44, "delayed_over_5_ratio": 0.19, "delayed_over_10_ratio": 0.09, "maximum_delay": 22 },
+    { "week_start": "2026-03-16", "week_end": "2026-03-22", "total_trains": 57, "average_delay": 2.4, "median_delay": 1.0, "on_time_ratio": 0.59, "delayed_any_ratio": 0.41, "delayed_over_5_ratio": 0.17, "delayed_over_10_ratio": 0.07, "maximum_delay": 20 }
+  ],
+  "top_stations": [
+    {
+      "station_id": 1,
+      "name": "Muenchen Hbf",
+      "city": "Muenchen",
+      "total_trains": 44,
+      "average_delay": 2.8,
+      "maximum_delay": 22,
+      "on_time_ratio": 0.5,
+      "delay_probability": 0.5,
+      "delay_over_5_probability": 0.24,
+      "delay_over_10_probability": 0.09,
+      "delay_probability_confidence_95": { "lower": 0.36, "upper": 0.64 }
+    },
+    {
+      "station_id": 2,
+      "name": "Berlin Hbf",
+      "city": "Berlin",
+      "total_trains": 38,
+      "average_delay": 2.2,
+      "maximum_delay": 19,
+      "on_time_ratio": 0.61,
+      "delay_probability": 0.39,
+      "delay_over_5_probability": 0.14,
+      "delay_over_10_probability": 0.06,
+      "delay_probability_confidence_95": { "lower": 0.26, "upper": 0.55 }
+    }
+  ],
+  "station_profile": [
+    {
+      "station_id": 1,
+      "name": "Muenchen Hbf",
+      "city": "Muenchen",
+      "total_trains": 44,
+      "average_delay": 2.8,
+      "maximum_delay": 22,
+      "on_time_ratio": 0.5,
+      "delay_probability": 0.5,
+      "delay_over_5_probability": 0.24,
+      "delay_over_10_probability": 0.09,
+      "delay_probability_confidence_95": { "lower": 0.36, "upper": 0.64 }
+    },
+    {
+      "station_id": 2,
+      "name": "Berlin Hbf",
+      "city": "Berlin",
+      "total_trains": 38,
+      "average_delay": 2.2,
+      "maximum_delay": 19,
+      "on_time_ratio": 0.61,
+      "delay_probability": 0.39,
+      "delay_over_5_probability": 0.14,
+      "delay_over_10_probability": 0.06,
+      "delay_probability_confidence_95": { "lower": 0.26, "upper": 0.55 }
+    }
+  ],
+  "most_risky_stations": [
+    {
+      "station_id": 1,
+      "name": "Muenchen Hbf",
+      "city": "Muenchen",
+      "total_trains": 44,
+      "average_delay": 2.8,
+      "maximum_delay": 22,
+      "on_time_ratio": 0.5,
+      "delay_probability": 0.5,
+      "delay_over_5_probability": 0.24,
+      "delay_over_10_probability": 0.09,
+      "delay_probability_confidence_95": { "lower": 0.36, "upper": 0.64 }
+    }
+  ]
+}

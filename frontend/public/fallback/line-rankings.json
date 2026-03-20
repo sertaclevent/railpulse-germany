@@ -1,0 +1,57 @@
+{
+  "days": 14,
+  "min_trains": 20,
+  "top_n": 5,
+  "most_punctual": [
+    {
+      "line_name": "ICE 100",
+      "total_trains": 120,
+      "average_delay": 1.9,
+      "maximum_delay": 18,
+      "on_time_ratio": 0.68,
+      "delayed_any_ratio": 0.32,
+      "delayed_over_5_ratio": 0.11,
+      "delayed_over_10_ratio": 0.05,
+      "stations_covered": 12,
+      "risk_band": "low"
+    },
+    {
+      "line_name": "RE 1",
+      "total_trains": 164,
+      "average_delay": 2.3,
+      "maximum_delay": 16,
+      "on_time_ratio": 0.64,
+      "delayed_any_ratio": 0.36,
+      "delayed_over_5_ratio": 0.14,
+      "delayed_over_10_ratio": 0.06,
+      "stations_covered": 15,
+      "risk_band": "medium"
+    }
+  ],
+  "most_delayed": [
+    {
+      "line_name": "RE 7",
+      "total_trains": 180,
+      "average_delay": 8.9,
+      "maximum_delay": 48,
+      "on_time_ratio": 0.22,
+      "delayed_any_ratio": 0.78,
+      "delayed_over_5_ratio": 0.62,
+      "delayed_over_10_ratio": 0.31,
+      "stations_covered": 16,
+      "risk_band": "high"
+    },
+    {
+      "line_name": "S 2",
+      "total_trains": 280,
+      "average_delay": 7.7,
+      "maximum_delay": 46,
+      "on_time_ratio": 0.29,
+      "delayed_any_ratio": 0.71,
+      "delayed_over_5_ratio": 0.54,
+      "delayed_over_10_ratio": 0.28,
+      "stations_covered": 25,
+      "risk_band": "high"
+    }
+  ]
+}

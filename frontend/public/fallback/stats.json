@@ -1,0 +1,13 @@
+{
+  "station_id": 1,
+  "board_type": "departure",
+  "window_hours": 2,
+  "total_trains": 22,
+  "average_delay": 6.3,
+  "median_delay": 5,
+  "on_time_ratio": 0.27,
+  "delayed_any_ratio": 0.73,
+  "delayed_over_5_ratio": 0.56,
+  "delayed_over_10_ratio": 0.24,
+  "maximum_delay": 29
+}

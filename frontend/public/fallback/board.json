@@ -1,0 +1,49 @@
+{
+  "station": {
+    "id": 1,
+    "eva_number": "8000261",
+    "name": "Muenchen Hbf",
+    "city": "Muenchen",
+    "latitude": 48.140232,
+    "longitude": 11.558335,
+    "label": "Muenchen Hbf - Muenchen"
+  },
+  "board_type": "departure",
+  "window_hours": 2,
+  "filters": {
+    "delay_threshold": 0,
+    "category": ""
+  },
+  "trains": [
+    {
+      "id": 101,
+      "station": 1,
+      "board_type": "departure",
+      "train_line": "ICE 610",
+      "category": "ICE",
+      "destination_or_origin": "Berlin Hbf",
+      "planned_time": "2026-03-20T12:20:00+01:00",
+      "updated_time": "2026-03-20T12:25:00+01:00",
+      "planned_time_local": "2026-03-20T12:20:00+01:00",
+      "updated_time_local": "2026-03-20T12:25:00+01:00",
+      "delay_minutes": 5,
+      "platform": "18",
+      "status": "delayed"
+    },
+    {
+      "id": 102,
+      "station": 1,
+      "board_type": "departure",
+      "train_line": "RE 4038",
+      "category": "RE",
+      "destination_or_origin": "Nuernberg Hbf",
+      "planned_time": "2026-03-20T12:34:00+01:00",
+      "updated_time": "2026-03-20T12:42:00+01:00",
+      "planned_time_local": "2026-03-20T12:34:00+01:00",
+      "updated_time_local": "2026-03-20T12:42:00+01:00",
+      "delay_minutes": 8,
+      "platform": "22",
+      "status": "delayed"
+    }
+  ]
+}
