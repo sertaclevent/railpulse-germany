@@ -1,7 +1,12 @@
 # RailPulse Germany - Train Delay Analytics Dashboard
 
-React + Django tabanli tek sayfa bir Germany Train Delay Dashboard MVP'si.
-Uygulama Deutsche Bahn Timetables API ve StaDa API ile secilen istasyonun kalkis/varis verilerini ceker, gecikme hesaplar, haritada gosterir, KPI ve grafik uretir.
+Monorepo project with a Django backend and React frontend for German train delay analytics.
+
+The app pulls live data from Deutsche Bahn APIs, normalizes it into a local database, and provides:
+- station board data (departures/arrivals)
+- delay KPIs
+- hourly/daily/weekly delay trends
+- line rankings and line risk analytics
 
 ## Screenshots
 
@@ -9,71 +14,59 @@ Desktop dashboard:
 
 ![Dashboard Overview](./docs/screenshots/dashboard-overview.svg)
 
-Mobile stack layout:
+Mobile layout:
 
 ![Dashboard Mobile](./docs/screenshots/dashboard-mobile.svg)
 
-## Project Overview
+## Project Structure
 
-- Varsayilan istasyon: `Muenchen Hbf` (EVA `8000261`)
-- Station autocomplete: backend `GET /api/stations/search?q=`
-- Board verisi: backend `GET /api/stations/:id/board`
-- KPI metrikleri: backend `GET /api/stations/:id/stats`
-- Grafik verisi: backend `GET /api/stations/:id/hourly-delay`
-- Saglik kontrolu: `GET /api/health`
+- `backend/` - Django + DRF API and data ingestion logic
+- `frontend/` - React + Vite dashboard UI
+- `backend/sample_data/` - backend fallback sample payloads
+- `frontend/public/fallback/` - frontend fallback sample payloads
+- `docs/screenshots/` - README visuals
 
 ## Tech Stack
 
-- Frontend: React + Vite + TypeScript + Tailwind CSS + Zustand + Axios + React Leaflet + Recharts
-- Backend: Django + Django REST Framework + PostgreSQL (env ile) + requests
-- Deployment target: Frontend Vercel, Backend Render
+- Frontend: React, Vite, TypeScript, Tailwind CSS, Zustand, Axios, Recharts, React Leaflet
+- Backend: Django, Django REST Framework, requests, PostgreSQL/SQLite (env-based)
 
-## Architecture
+## Data Flow
 
-Monorepo yapisi:
+1. Frontend requests backend endpoints only.
+2. Backend fetches from Deutsche Bahn Timetables and Station Data APIs.
+3. Data is normalized and upserted into `TrainSnapshot`.
+4. `delay_minutes` is computed in backend (negative delays are clamped to `0`).
+5. Stats and charts are generated from normalized DB data.
 
-- `frontend/`: dashboard SPA
-- `backend/`: Django API + normalize DB modeli
-- `backend/sample_data/`: backend fallback JSON dosyalari
-- `frontend/public/fallback/`: frontend fallback JSON dosyalari
-- `docs/screenshots/`: README ekran goruntuleri
-
-Veri akisi:
-
-1. Frontend yalnizca backend API endpoint'lerine istek atar.
-2. Backend Timetables API ve StaDa API'ye gider.
-3. Gelen veri normalize edilir, `TrainSnapshot` tablosuna upsert edilir.
-4. `delay_minutes` backend'de hesaplanir (negatifse 0).
-5. KPI ve chart endpoint'leri normalize veriden uretilir.
-
-## Backend Data Model
+## Backend Models
 
 - `Station`
 - `TrainSnapshot`
 - `DailyStationStats`
 
-`TrainSnapshot` alanlari:
+Main `TrainSnapshot` fields:
+- `station`
+- `board_type`
+- `train_name`
+- `planned_time`
+- `updated_time`
+- `delay_minutes`
+- `platform`
+- `status`
+- `raw_payload`
+- `record_uid` (unique)
 
-- station
-- board_type
-- train_name
-- planned_time
-- updated_time
-- delay_minutes
-- platform
-- raw_payload
-- record_uid (benzersiz anahtar)
+## Local Setup
 
-## Setup Steps
-
-## 1) Clone and enter repository
+### 1) Clone repository
 
 ```bash
-git clone <your-repo-url> railpulse-germany
+git clone https://github.com/sertaclevent/railpulse-germany.git
 cd railpulse-germany
 ```
 
-## 2) Backend setup
+### 2) Backend setup
 
 ```bash
 cd backend
@@ -85,9 +78,9 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Backend varsayilan: `http://localhost:8000`
+Backend default URL: `http://127.0.0.1:8000`
 
-## 3) Frontend setup
+### 3) Frontend setup
 
 ```bash
 cd ../frontend
@@ -96,9 +89,9 @@ copy .env.example .env
 npm run dev
 ```
 
-Frontend varsayilan: `http://localhost:5174`
+Frontend default URL: `http://localhost:5174`
 
-## 4) Test commands
+## Tests
 
 Backend:
 
@@ -115,17 +108,16 @@ npm run test
 npm run build
 ```
 
-## Historical Trend Collection
+## Background Snapshot Collection
 
-Günlük/haftalık gecikme trendlerinin dolması için backend'in düzenli snapshot toplaması gerekir.
-Bu komutu periyodik (örn. her 15 dakika) çalıştırabilirsiniz:
+For richer daily/weekly trends, run periodic snapshot ingestion:
 
 ```bash
 cd backend
 .\.venv\Scripts\python manage.py collect_delay_snapshots --station-id 1 --board-type both --window-hours 4
 ```
 
-Ulke genelinde hat bazli analiz icin once istasyon kataloğunu senkronlayin, sonra toplu snapshot alin:
+For wider country coverage:
 
 ```bash
 cd backend
@@ -135,76 +127,59 @@ cd backend
 
 ## Environment Variables
 
-Kokte `.env.example`, ayrica:
-
+Root template: `.env.example`  
+Service templates:
 - `backend/.env.example`
 - `frontend/.env.example`
 
-Kritik degiskenler:
-
-Backend:
-
+Important backend vars:
 - `DB_CLIENT_ID`
-- `DB_API_KEY` (sadece backend)
+- `DB_API_KEY` (backend only)
 - `DATABASE_URL`
 - `DJANGO_CORS_ALLOWED_ORIGINS`
 - `DEMO_USE_SAMPLE_DATA`
-- `REFRESH_TTL_SECONDS` (dis API yenileme araligi, onerilen: 120)
+- `REFRESH_TTL_SECONDS`
 
-Frontend:
-
+Important frontend vars:
 - `VITE_API_BASE_URL`
 - `VITE_USE_SAMPLE_DATA`
 
-Gelistirme ortami icin onerilen frontend API ayari:
-
-- `VITE_API_BASE_URL=/api` (Vite proxy ile `127.0.0.1:8000` backend'e yonlendirilir)
-
-## License Notice
-
-This dataset is provided under the Creative Commons Attribution 4.0 International license (CC BY 4.0).
-
-If Deutsche Bahn (DB) data becomes part of the OpenStreetMap database, it is sufficient to credit Deutsche Bahn AG
-in the contributors list. For downstream uses by database licensees, explicit DB attribution on every single use is
-not required; indirect attribution (attribution to the database publisher that itself attributes DB) is sufficient.
+Recommended local frontend API config:
+- `VITE_API_BASE_URL=/api` (via Vite proxy to backend)
 
 ## API Endpoints
 
 - `GET /api/health`
 - `GET /api/stations/search?q=`
-- `GET /api/stations/:id/board?type=departure&window=2h&delay_threshold=all&category=`
-- `GET /api/stations/:id/stats?type=departure&window=2h&delay_threshold=all&category=`
-- `GET /api/stations/:id/hourly-delay?type=departure`
-- `GET /api/stations/:id/delay-trends?type=departure&days=14`
+- `GET /api/stations/:id/board?type=departure&window=2h&delay_threshold=all&category=&line=`
+- `GET /api/stations/:id/stats?type=departure&window=2h&delay_threshold=all&category=&line=`
+- `GET /api/stations/:id/hourly-delay?type=departure&line=`
+- `GET /api/stations/:id/delay-trends?type=departure&days=14&line=`
 - `GET /api/stations/:id/line-probabilities?type=departure&days=30&min_trains=6&top_n=8`
 - `GET /api/lines/catalog?days=30&limit=200&q=`
 - `GET /api/lines/rankings?days=14&min_trains=20&top_n=5`
 - `GET /api/lines/:line_name/stats?days=30&top_stations=10`
 
-Tum yanitlar JSON'dur.
-Datetime alanlari ISO formatindadir.
-Frontend alanlari: `planned_time_local`, `updated_time_local`, `delay_minutes`.
-Olasilik alanlari: `delay_probability`, `delay_over_5_probability`, `delay_over_10_probability`, `delay_probability_confidence_95`.
-Hat filtreleme: `board/stats/hourly-delay/delay-trends` endpointlerinde opsiyonel `line=<TRAIN_CODE>` query parami desteklenir.
-Zaman penceresi: `window=1h|2h|4h|6h` kullanilabilir. `board/stats` endpoint'leri secili pencerede veri yoksa otomatik `6h` fallback dener ve `requested_window_hours` + `window_hours` alanlarini dondurur.
+All responses are JSON.
 
-## Deployment Prep
+Time window values:
+- `window=1h|2h|4h|6h`
+- For `board` and `stats`: if selected window has no records, backend can auto-expand to `6h` and return both `requested_window_hours` and effective `window_hours`.
 
-- Render config: [`render.yaml`](./render.yaml)
-- Backend Procfile: [`backend/Procfile`](./backend/Procfile)
-- Vercel config: [`frontend/vercel.json`](./frontend/vercel.json)
+## License Notice
+
+This dataset is provided under the Creative Commons Attribution 4.0 International license (CC BY 4.0).
+
+If Deutsche Bahn (DB) data becomes part of the OpenStreetMap database, it is sufficient to credit Deutsche Bahn AG in the contributors list. For downstream uses by database licensees, explicit DB attribution for every individual use is not required; indirect attribution is sufficient.
+
+## Deployment
+
+- Render config: `render.yaml`
+- Backend Procfile: `backend/Procfile`
+- Frontend Vercel config: `frontend/vercel.json`
 
 ## Known Limitations
 
-- Deutsche Bahn API response formati ortama gore degisebilir; parser defensive ama tum edge-case'leri kapsamayabilir.
-- Frontend station search iki panelde ayri input kullaniyor (istenen filtre kapsamini saglamak icin).
-- Historical trend ve multi-station karsilastirma endpoint'leri bu MVP'de aktif degil.
+- Deutsche Bahn API payload formats can vary; parser is defensive but not exhaustive.
+- Historical analytics quality depends on periodic snapshot ingestion coverage.
 
-## Future Improvements
-
-- Historical trend analytics (gunluk/haftalik)
-- Multi-station comparison
-- Line-based performance analysis
-- Disruption overlay (incident feeds)
-- Delay heatmap visualization
-- Background scheduler ile periodik snapshot ingestion
